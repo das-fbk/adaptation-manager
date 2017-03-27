@@ -96,7 +96,7 @@ public class AdaptationThread extends Thread {
 			logger.debug("Relevant services: "
 					+ ap.getRelevantServices().toString());
 
-			// more daptation strategies could be added here
+			// more adaptation strategies could be added here
 			AdaptationGoal ag = null;
 			GeneralAdaptationProblem gap = null;
 			GeneralAdaptationResult gar = null;
@@ -129,8 +129,10 @@ public class AdaptationThread extends Thread {
 								if (a.getName().equals(act.getName())) {
 									act.setPrecondition(a.getPrecondition());
 									act.setEffect(a.getEffect());
-									act.setServiceActionVariables(a
-											.getActionVariable());
+									if (a.getActionVariable() != null) {
+										act.setServiceActionVariables(a
+												.getActionVariable());
+									}
 									if (act.isAbstract()) {
 										if (a.getGoal() != null) {
 											// normal abstract fragment
