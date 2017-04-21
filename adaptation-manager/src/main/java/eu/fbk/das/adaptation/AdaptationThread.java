@@ -123,6 +123,9 @@ public class AdaptationThread extends Thread {
 			if (gar != null && gar.getAdaptationProcess() != null) {
 				for (ProcessActivity act : gar.getAdaptationProcess()
 						.getActivities()) {
+					if (act.getName().equals("TA_ShowResults")) {
+						System.out.println();
+					}
 					for (DomainObjectDefinition dod : relevantModels) {
 						for (Fragment f : dod.getFragments()) {
 							for (Action a : f.getAction()) {
